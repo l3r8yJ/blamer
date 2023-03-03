@@ -1,0 +1,47 @@
+AllCops:
+  Exclude:
+    - 'bin/**/*'
+    - 'assets/**/*'
+  DisplayCopNames: true
+  TargetRubyVersion: 2.6.0
+  NewCops: enable
+  SuggestExtensions: false
+
+Layout/MultilineOperationIndentation:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: false
+Naming/MethodParameterName:
+  MinNameLength: 1
+Style/CommandLiteral:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Layout/IndentationWidth:
+  Enabled: false
+Layout/ElseAlignment:
+  Enabled: false
+Layout/EndAlignment:
+  Enabled: false
+Lint/RescueException:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 50
+Metrics/ClassLength:
+  Max: 200
+Metrics/AbcSize:
+  Max: 60
+Metrics/BlockLength:
+  Max: 100
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Max: 11
+Metrics/PerceivedComplexity:
+  Max: 11
+Layout/LineLength:
+  Max: 120
+Style/OpenStructUse:
+  Enabled: false
+Gemspec/RequireMFA:
+  Enabled: false

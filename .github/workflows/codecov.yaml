@@ -2,26 +2,19 @@
 name: codecov
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 jobs:
   codecov:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-ruby@v1
         with:
-          distribution: 'temurin'
-          java-version: 17
-      - uses: actions/cache@v3
-        with:
-          path: ~/.m2/repository
-          key: maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            maven-
-      - run: mvn clean install
+          ruby-version: 2.7
+      - run: bundle update
+      - run: bundle exec rake
       - uses: codecov/codecov-action@v3
         with:
-          files: ./target/site/jacoco/jacoco.xml
+          file: coverage/.resultset.json
           fail_ci_if_error: true

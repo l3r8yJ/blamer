@@ -1,11 +1,20 @@
 architect:
-  - # your GitHub nickname
+  - l3r8yJ
+assets:
+  rubygems.yml: l3r8yJ/home#assets/rubygems.yml
+install: |
+  pdd -f /dev/null
+  sudo bundle install --no-color "--gemfile=$(pwd)/Gemfile"
 merge:
   script:
-    - "mvn clean install --errors --batch-mode"
+    - "bundle exec rake"
 release:
-  pre: false
   script: |-
-    [[ "${tag}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit -1
-    git commit -am "${tag}"
-    # add your release pipeline
+    bundle exec rake
+    rm -rf *.gem
+    sed -i "s/0\.0\.0/${tag}/g" lib/blamer/version.rb
+    git add lib/blamer/version.rb
+    git commit -m "version set to ${tag}"
+    gem build blamer.gemspec
+    chmod 0600 ../rubygems.yml
+    gem push *.gem --config-file ../rubygems.yml
