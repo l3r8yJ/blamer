@@ -1,1 +1,0 @@
-var search_data = {"index":{"searchIndex":["blamer","error","readme"],"longSearchIndex":["blamer","blamer::error",""],"info":[["Blamer","","Blamer.html","",""],["Blamer::Error","","Blamer/Error.html","",""],["README","","README_md.html","","<p>elegant\n<p>This is a pre-configured template for your projects in Java, you can use it with any language, …\n"]]}}
